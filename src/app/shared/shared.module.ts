@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TestSharedComponentComponent } from './components/test-shared-component/test-shared-component.component';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const SHARED_MODULES = [
   CommonModule
 ];
 
-const ANGULAR_MATERIAL_MODULES = [];
+const ANGULAR_MATERIAL_MODULES = [
+  MatIconModule,
+  MatTabsModule
+];
 const SHARED_COMPONENTS = [
-  TestSharedComponentComponent
+  NotFoundComponent
 ];
 // const SHARED_DIRECTIVES = [];
 // const SHARED_PIPES = [];
