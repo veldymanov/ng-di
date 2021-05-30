@@ -4,14 +4,16 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { NotFoundComponent } from '@shared/components/not-found/not-found.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/feature-one' },
   {
     path: 'lazy-feature-one',
     loadChildren: () => import('./lazy-loaded/lazy-feature-one/lazy-feature-one.module').then(m => m.LazyFeatureOneModule)
   },
   {
-    path: '**',
-    component: NotFoundComponent
-  }
+    path: 'lazy-feature-two',
+    loadChildren: () => import('./lazy-loaded/lazy-feature-two/lazy-feature-two.module').then(m => m.LazyFeatureTwoModule)
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

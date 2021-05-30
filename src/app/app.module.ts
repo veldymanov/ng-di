@@ -9,10 +9,12 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
+import { DiTestOneService } from '@core/services/di-test-one.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { AppComponent } from './app.component';
     FeatureTwoModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DiTestOneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
