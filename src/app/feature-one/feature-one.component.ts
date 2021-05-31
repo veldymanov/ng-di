@@ -3,15 +3,17 @@ import { AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/c
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { DiTestOneService } from '@core/services/di-test-one.service';
+import { DiTestOneService } from './services/di-test-one.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-feature-one',
+  providers: [DiTestOneService],
   styles: [``],
   template: `
     <div>
       <div>FeatureOneModule FeatureOneComponent:</div>
-      <div>dieTestOneService.title$ | async : {{diTestOneService.title$ | async}}</div>
+      <div>dieTestOneService.title$ | async : {{diTestOneService.title1$ | async}}</div>
     </div>
 
     <br/>
@@ -25,13 +27,14 @@ export class FeatureOneComponent implements OnInit, DoCheck, AfterViewInit, OnDe
   private destroy$ = new Subject<void>();
 
   constructor(
-    public diTestOneService: DiTestOneService
+    public diTestOneService: DiTestOneService,
+    public appComponent: AppComponent
   ) { }
 
   ngOnInit(): void {
-    this.diTestOneService.changeTitle('FeatureOneComponent');
+    this.diTestOneService.changeTitle1('FeatureOneComponent');
 
-    this.diTestOneService.title$
+    this.diTestOneService.title1$
       .pipe(
         takeUntil(this.destroy$)
       )

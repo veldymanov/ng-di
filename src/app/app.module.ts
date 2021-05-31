@@ -22,7 +22,7 @@ import { DiTestOneService } from '@core/services/di-test-one.service';
     SharedModule,
     FeatureOneModule,
     FeatureTwoModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [DiTestOneService],
   bootstrap: [AppComponent]
